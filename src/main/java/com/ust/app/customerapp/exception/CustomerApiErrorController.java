@@ -46,4 +46,16 @@ public class CustomerApiErrorController {
 				ex.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(body);
 	}
+	
+	
+	
+	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(value = Exception.class)
+	public ResponseEntity<ErrorResponse> handleOtherExistsException(Exception ex,
+			HttpServletRequest request) {
+		HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+		ErrorResponse body = new ErrorResponse(LocalDateTime.now(), status.value(), status.getReasonPhrase(),
+				ex.getMessage(), request.getRequestURI());
+		return ResponseEntity.status(status).body(body);
+	}
 }

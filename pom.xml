@@ -76,7 +76,11 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<image>
+						<name>customer-app-jpa</name>
+					</image>
 				</configuration>
+				
 			</plugin>
 		</plugins>
 	</build>
